@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script>
+      window.onload = function() {
+        const foo = {
+          fn: function() {
+            setTimeout(function() {
+              console.log(this); //window
+            });
+          }
+        };
+        const foo1 = {
+          fn: function() {
+            setTimeout(() => {
+              console.log(this); //foo1
+            });
+          }
+        };
+        console.log(foo.fn()); //undefined
+        console.log(foo1.fn()); //window
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

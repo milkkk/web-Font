@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script>
+      window.onload = function() {
+        const foo1 = new Foo();
+        console.log(foo1.user); //undefined this==o
+        const foo2 = new Foo1();
+        console.log(foo2.user); //Lucas this==foo2
+      };
+      function Foo() {
+        this.user = "Lucas";
+        const o = {};
+        return o;
+      }
+      function Foo1() {
+        this.user = "Lucas";
+        return 1;
+      }
+    </script>
+  </head>
+  <body></body>
+</html>

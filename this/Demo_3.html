@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script>
+      window.onload = function() {
+        const o1 = {
+          text: "o1",
+          fn: function() {
+            return this.text;
+          }
+        };
+        const o2 = {
+          text: "o2",
+          fn: function() {
+            return o1.fn();
+          }
+        };
+        const o3 = {
+          text: "o3",
+          fn: function() {
+            var fn = o1.fn;
+            fn();
+          }
+        };
+        console.log(o1.fn());
+        console.log(o2.fn());
+        console.log(o3.fn());
+        //要求o2.fn()输出o2
+        const o4 = {
+          text: "o4",
+          fn: function() {
+            //return o1.fn.call(this);
+            return o1.fn.apply(this);
+          },
+          fn1: o1.fn
+        };
+        console.log(o4.fn());
+        console.log(o4.fn1());
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

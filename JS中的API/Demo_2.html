@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .da-modal-container {
+        width: 400px;
+        height: 400px;
+        margin: 100px auto;
+        background: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="da-modal-container"></div>
+    <script>
+      const offset = ele => {
+        let result = {
+          top: 0,
+          left: 0
+        };
+        if (!ele.getClientRects().length) {
+          return result;
+        }
+        if (window.getComputedStyle(ele)["display"] === "none") {
+          return result;
+        }
+        result = ele.getBoundingClientRect();
+        var docElement = ele.ownerDocument.documentElement;
+        return {
+          top: result.top + window.pageYOffset - docElement.clientTop,
+          left: result.left + window.pageXOffset - docElement.clientLeft
+        };
+      };
+      var container = document.querySelector(".da-modal-container");
+      console.log(offset(container));
+    </script>
+  </body>
+</html>

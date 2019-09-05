@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script>
+      window.onload = function() {
+        const Student = {
+          name: "Lucas",
+          fn: function() {
+            return this;
+          }
+        };
+        console.log(Student.fn() === Student); //true
+        const Person = {
+          name: "Lucas",
+          brother: {
+            name: "Mike",
+            fn: function() {
+              console.log(this);
+              return this.name;
+            }
+          }
+        };
+        console.log(Person.brother.fn()); //Mike this=Person.brother
+      };
+    </script>
+  </head>
+  <body></body>
+</html>

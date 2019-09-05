@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Person() {
+        this.name = "Lucas";
+      }
+      const getSingleInstance = (function() {
+        var SingleInstance;
+        return function() {
+          if (SingleInstance) {
+            return SingleInstance;
+          }
+          return (SingleInstance = new Person());
+        };
+      })();
+      const instance1 = new getSingleInstance();
+      const instance2 = new getSingleInstance();
+      console.log(instance1 === instance2);
+    </script>
+  </body>
+</html>
